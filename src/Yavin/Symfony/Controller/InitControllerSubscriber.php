@@ -8,6 +8,9 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class InitControllerSubscriber implements EventSubscriberInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribedEvents()
     {
         return array(
@@ -31,7 +34,7 @@ class InitControllerSubscriber implements EventSubscriberInterface
 
         $controllerObject = $controller[0];
         if ($controllerObject instanceof InitControllerInterface) {
-            $controllerObject->init($event->getRequest());
+            $controllerObject->init();
         }
     }
 }
