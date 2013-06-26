@@ -1,6 +1,8 @@
 # Symfony Init Controller extension
 Add ability to call `init` method in controller before every action. This is similar functionality that are in Zend Frameowrk.
 
+
+You must implement `Yavin\Symfony\Controller\InitControllerInterface` in controller that you wont to have init method.
 ```php
 namespace Acme\DemoBundle\Controller;
 
