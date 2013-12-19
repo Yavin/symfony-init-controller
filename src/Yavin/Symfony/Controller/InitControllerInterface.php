@@ -8,4 +8,3 @@ interface InitControllerInterface
 {
     public function init();
 }
-
