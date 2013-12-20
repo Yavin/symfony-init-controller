@@ -1,8 +1,10 @@
 # Symfony Init Controller extension
-Add ability to call `init` method in controller before every action. This is similar functionality that are in Zend Frameowrk.
+Add ability to call `init` method in controller before every action.
+Based on [this answer](http://stackoverflow.com/a/11179521/1051297)
 
 
-You must implement `Yavin\Symfony\Controller\InitControllerInterface` in controller that you wont to have init method.
+You must implement `Yavin\Symfony\Controller\InitControllerInterface` in controller that you want to have init method.
+Then you can have your init method like this:
 ```php
 namespace Acme\DemoBundle\Controller;
 
@@ -18,12 +20,12 @@ class SampleController extends Controller implements InitControllerInterface
         $request = $this->getRequest();
         $this->page = $request->get('page');
     }
-    
+
     public function indexAction()
     {
         //...
     }
-    
+
     public function otherAction()
     {
         //...
@@ -31,10 +33,10 @@ class SampleController extends Controller implements InitControllerInterface
 }
 ```
 
-To add this functionality you must add service in symfony config:
+To add this functionality you must add service in symfony `app/config/config.yml`:
 ```
 services:
-    yavin.symfony.controller.init.subscriber:
+    symfony.controller.init.subscriber:
         class: "Yavin\\Symfony\\Controller\\InitControllerSubscriber"
         tags:
             - { name: kernel.event_subscriber }

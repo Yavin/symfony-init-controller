@@ -1,0 +1,16 @@
+{
+    "name": "yavin/symfony-init-controller",
+    "description": "Runs init controller method before every action",
+    "require": {
+        "symfony/http-kernel": "~2.0",
+        "symfony/event-dispatcher": "~2.0"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Yavin",
+            "email": "yavin.yavin@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
