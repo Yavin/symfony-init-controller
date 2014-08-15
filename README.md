@@ -1,4 +1,7 @@
 # Symfony Init Controller extension
+
+[![Build Status](https://travis-ci.org/Yavin/symfony-init-controller.svg)](https://travis-ci.org/Yavin/symfony-init-controller)
+
 Add ability to execute `init` method in controller before every action.
 Based on [this answer](http://stackoverflow.com/a/11179521/1051297)
 
@@ -56,7 +59,3 @@ Based on [this answer](http://stackoverflow.com/a/11179521/1051297)
        }
    }
    ```
-
-### TODO
-* write tests
-
