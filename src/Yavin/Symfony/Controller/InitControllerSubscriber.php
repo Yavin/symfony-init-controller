@@ -26,7 +26,7 @@ class InitControllerSubscriber implements EventSubscriberInterface
     {
         $controller = $event->getController();
 
-        if (!is_array($controller)) {
+        if (empty($controller) || !is_array($controller)) {
             // not a object but a different kind of callable. Do nothing
             return;
         }
