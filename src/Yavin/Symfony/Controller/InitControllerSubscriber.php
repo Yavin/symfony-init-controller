@@ -33,7 +33,7 @@ class InitControllerSubscriber implements EventSubscriberInterface
 
         $controllerObject = $controller[0];
         if ($controllerObject instanceof InitControllerInterface) {
-            $controllerObject->init();
+            $controllerObject->init($event->getRequest());
         }
     }
 }

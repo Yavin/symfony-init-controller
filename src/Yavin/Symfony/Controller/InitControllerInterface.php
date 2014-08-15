@@ -6,5 +6,5 @@ use Symfony\Component\HttpFoundation\Request;
 
 interface InitControllerInterface
 {
-    public function init();
+    public function init(Request $request);
 }
