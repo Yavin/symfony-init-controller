@@ -1,24 +1,25 @@
 {
     "name": "yavin/symfony-init-controller",
     "description": "Runs init controller method before every action",
-    "license": "mit",
+    "license": "MIT",
     "authors": [
         {"name": "Yavin", "email": "yavin.yavin@gmail.com"}
     ],
     "require": {
+        "php": ">=5.3.9",
         "symfony/http-kernel": "~2.0",
         "symfony/event-dispatcher": "~2.0"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0"
     },
-    "minimum-stability": "stable",
     "autoload": {
-        "psr-0":{
-            "Yavin": "src/"
+        "psr-4":{
+            "Yavin\\Symfony\\Controller\\": "src"
         }
     },
     "config": {
         "bin-dir": "bin"
     }
 }
+

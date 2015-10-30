@@ -8,6 +8,7 @@ require_once __DIR__ . '/SampleInitController.php';
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class InitControllerSubscriberSpec extends ObjectBehavior
@@ -53,6 +54,23 @@ class InitControllerSubscriberSpec extends ObjectBehavior
     ) {
         $event->getRequest()->willReturn($request);
         $event->getController()->willReturn(array(function() {}));
+
+        $this->onKernelController($event);
+    }
+
+    public function it_set_controller_if_init_return_response(
+        FilterControllerEvent $event,
+        Request $request,
+        SampleInitController $controller
+    ) {
+        $event->getRequest()->willReturn($request);
+        $event->getController()->willReturn(array($controller));
+        $controller->init($request)->willReturn(new Response('http://example.com/'));
+
+        $event->setController(Argument::allOf(
+            Argument::withEntry('0', Argument::type('Yavin\Symfony\Controller\InitControllerSubscriber')),
+            Argument::withEntry('1', 'responseAction')
+        ))->shouldBeCalled();
 
         $this->onKernelController($event);
     }

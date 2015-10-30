@@ -1,0 +1,5 @@
+formatter.name: dot
+suites:
+  default:
+    namespace: Yavin\Symfony\Controller
+    psr4_prefix: Yavin\Symfony\Controller
